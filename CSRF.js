@@ -1,6 +1,6 @@
 function sendPostRequest() {
-    var hostname = window.location.hostname
-    alert(hostname)
+    var hostname = window.location.hostname;
+    alert(hostname);
     var url = 'http://'+hostname+'/windex-ged/WindexServer';
     var data = {
         Agent: "AddressBook",
