@@ -1,5 +1,4 @@
 function submitForm() {
-    alert(window.location.hostname)
     var hostname = window.location.hostname
 
     var form = document.createElement('form');
