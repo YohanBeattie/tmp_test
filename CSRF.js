@@ -4,7 +4,7 @@ function submitForm() {
 
     var form = document.createElement('form');
     form.method = 'POST';
-    form.action = 'http://'+hostname+'/endpoint';
+    form.action = 'http://'+hostname+'/windex-ged/WindexServer';
 
     var formElements = [
         { name: "Agent", value: "AddressBook" },
