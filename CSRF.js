@@ -31,4 +31,4 @@ function sendPostRequest() {
 }
 
 // Call the function when the script is loaded
-window.onload = sendPostRequest
+window.onload = sendPostRequest;
