@@ -17,7 +17,7 @@ function sendPostRequest() {
         UserType: "",
         DossierFilter: ""
     };
-
+    
     fetch(url, {
         method: 'POST',
         headers: {
